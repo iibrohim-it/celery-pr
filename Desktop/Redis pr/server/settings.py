@@ -23,9 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-sn21rs_ldz!0e*14)14j2&_=^k=r@tovl&&*&nq!4c_ucqqy49'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'student3.softclub.tj',
+    '127.0.0.1',
+    'localhost',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://student3.softclub.tj',
+]
 
 
 # Application definition
@@ -178,6 +186,6 @@ MAILERS = {
 
 DEFAULT_FROM_EMAIL = 'abdurasulov703@gmail.com'
 
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/1'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
