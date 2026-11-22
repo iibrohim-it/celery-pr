@@ -4,6 +4,7 @@ from django.urls import path, include, re_path
 from rest_framework import permissions
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+from django.views.generic.base import RedirectView
 
 
 schema_view = get_schema_view(
@@ -40,7 +41,13 @@ urlpatterns = [
         schema_view.with_ui('redoc', cache_timeout=0),
         name='schema-redoc'
     ),
-
+    path(
+    '',
+    RedirectView.as_view(
+        url='/swagger/',
+        permanent=False
+    )
+),
     # My App URLs
     path('', include('myapp.urls')),
 ]
